@@ -8,10 +8,12 @@ class TodoContextProvider extends Component {
         this.state = {
             todos: [
                 {
+                    id: 0,
                 name: 'Name of ob',
                 task: 'do some shit'
             },
             {
+                    id: 1,
                 name: 'Name of ob',
                 task: 'do some shit'
             },
@@ -20,8 +22,13 @@ class TodoContextProvider extends Component {
         }
     }
 
-    createTodo() {
-
+    createTodo(e, todo) {
+        e.preventDefault();
+        let data = [...this.state.todos];
+        data.push(todo);
+        this.setState({
+            todos:data,
+        })
     }
 
     readTodo() {
